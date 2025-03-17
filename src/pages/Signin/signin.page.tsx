@@ -72,7 +72,7 @@ const Signin = () => {
 
           <div className="mt-[30px] relative">
             <p className="text-[#201E43] text-[14px]">
-              Don't have an account?{" "}
+              Don't have an account?
               <span className="text-[#508C9B] underline">
                 <Link to="/auth/get-started">Create one</Link>
               </span>
