@@ -1,5 +1,6 @@
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
+import { useNavigate } from "react-router-dom";
 import OnboardingLayout from "../../Layout/OnboadingLayout";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -20,7 +21,6 @@ import {
   AccordionTrigger,
 } from "../../components/ui/accordion";
 import { PremiumFeatures } from "../../data/PremiumFeatures";
-import WorkingMan from "../../assets/working-man.gif";
 import CS from "../../assets/customer-care.gif";
 
 const CreateCompanyName = () => {
@@ -43,6 +43,8 @@ const CreateCompanyName = () => {
   const [currentStep, setCurrentStep] = useState<ONBOARDING_STEPS>(
     ONBOARDING_STEPS.COMPANY_NAME
   );
+
+  const navigate = useNavigate();
 
   const name = watch("name");
   const username = watch("username");
@@ -253,7 +255,12 @@ const CreateCompanyName = () => {
                 Go with Premium
               </Button>
             </div>
-            <Button className="mt-[20px] mx-auto bg-[#134B70] text-[#eee]">
+            <Button
+              className="mt-[20px] mx-auto bg-[#134B70] text-[#eee]"
+              onClick={() => {
+                navigate("/app/main_feeds");
+              }}
+            >
               Start with limited features
             </Button>
           </div>

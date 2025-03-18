@@ -7,6 +7,8 @@ import Signin from "../pages/Signin/signin.page";
 import VerifyAccount from "../pages/VerifyAccount/VerifyAccount.page";
 import AuthenticateAccount from "../pages/AuthenticateAccount/AuthenticateAccount.page";
 import CreateCompanyName from "../pages/Onboarding/CreateCompanyName.page";
+import Dashbaord from "../pages/Dashboard/Dashboard.page";
+import Chat from "../pages/Chat/Chat.page";
 
 const AppRoutes = () => {
   return (
@@ -29,6 +31,9 @@ const AppRoutes = () => {
           path="/auth/get-started/create-company-name"
           element={<CreateCompanyName />}
         />
+
+        <Route path="/app/main_feeds" element={<Dashbaord />} />
+        <Route path="/app/personal_chat" element={<Chat />} />
 
         {/* 404 Page */}
         <Route path="*" element={<NotFound />} />

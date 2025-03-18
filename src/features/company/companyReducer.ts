@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface CompanyState {
   value: number;
   companyName: string;
+  selectedConversation: any;
 }
 
 const initialState: CompanyState = {
   value: 0,
   companyName: "",
+  selectedConversation: {},
 };
 
 const CompanySlice = createSlice({
@@ -26,9 +28,17 @@ const CompanySlice = createSlice({
     setCompanyName: (state, action: PayloadAction<string>) => {
       state.companyName = action.payload;
     },
+    setSelectedConversation: (state, action: PayloadAction<any>) => {
+      state.selectedConversation = action.payload;
+    },
   },
 });
 
-export const { increment, decrement, incrementByAmount, setCompanyName } =
-  CompanySlice.actions;
+export const {
+  increment,
+  decrement,
+  incrementByAmount,
+  setCompanyName,
+  setSelectedConversation,
+} = CompanySlice.actions;
 export default CompanySlice.reducer;

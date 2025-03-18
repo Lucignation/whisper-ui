@@ -1,0 +1,89 @@
+@use "../../Varaibles/varaibles.scss";
+
+.dashboard-header {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+  // font-family: Archivo;
+
+  @media (min-width: 768px) {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 18px 32px;
+    margin-bottom: 0;
+  }
+
+  .mobile-content-container {
+    display: flex;
+    gap: 8px;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+
+    .sidebar-hamburger-button {
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
+
+    .mobile-nsib-logo {
+      width: 110px;
+      object-fit: contain;
+      object-position: center;
+
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
+  }
+
+  .main-content {
+    display: flex;
+    // flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8px;
+
+    .path-holder {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #0d0d0db2;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+
+        svg {
+          color: #0d0d0db2;
+        }
+      }
+      &.hide {
+        display: none;
+        overflow: hidden;
+        @media (min-width: 768px) {
+          display: flex;
+        }
+      }
+    }
+    .page-button-holder {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      @media (min-width: 768px) {
+        gap: 12px;
+      }
+    }
+
+    h1 {
+      line-height: normal;
+    }
+  }
+}

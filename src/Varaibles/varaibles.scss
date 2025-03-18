@@ -1,0 +1,65 @@
+// colors
+$deepPurple: #5f38fa;
+$lightPurple: #9379fb;
+
+$activeBlack: #1a1b1d;
+$lightBlack: rgba(13, 13, 13, 0.5);
+$placeholderBlack: #0d0d0d;
+$outlineBlack: #36394a;
+$darkCharcoal: #6a6a6a;
+$textColorBlack: #0d0d0d;
+$labelColorBlack: #6a6a6a;
+
+$notificationRed: #ff1507;
+
+$linkLightBlack: #1a1b1db2;
+$bgOffWhite: #fafafa;
+$bgHoverWhite: #f4f4f4;
+$borderWhite: #f0f0f0;
+
+// Font Size
+$regularSize: 14px;
+$smallerSize: 10px;
+
+$buttonPurpleBg: linear-gradient(0deg, #5f38fa, #5f38fa),
+  linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+// Border Radius
+$borderRadius: 8px;
+
+// mobile breakpoint
+@mixin breakpoint($point) {
+  @if $point == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+}
+
+@mixin breakpointasc($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: 400px) {
+      @content;
+    }
+  } @else if $breakpoint == sm {
+    @media (max-width: 600px) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}

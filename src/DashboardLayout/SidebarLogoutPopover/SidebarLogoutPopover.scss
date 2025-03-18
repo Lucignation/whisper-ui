@@ -1,0 +1,88 @@
+@use "../../Varaibles/varaibles.scss";
+
+.ant-popover {
+  width: 245px;
+  border-radius: 12px;
+
+  .ant-popover-arrow {
+    display: none !important;
+  }
+  .ant-popover-inner {
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff !important;
+    box-shadow: 0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.03),
+      0px 2.767px 2.214px 0px rgba(0, 0, 0, 0.02) !important;
+
+    .popover-content {
+      .users-detail {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        padding: 16px 10px;
+        border-bottom: #f1f1f1;
+
+        .icon-text {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          .initials {
+            color: #5f38fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            font-size: "14px";
+            width: 32px;
+            height: 32px;
+            border-radius: 100%;
+            background: linear-gradient(
+                0deg,
+                rgba(102, 65, 250, 0.05),
+                rgba(102, 65, 250, 0.05)
+              ),
+              linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.16) 0%,
+                rgba(255, 255, 255, 0) 100%
+              );
+          }
+          .others {
+            p:first-child {
+              font-weight: 500;
+              color: #0d0d0d;
+              font-size: "14px";
+            }
+            p:last-child {
+              margin-top: 0px;
+              font-size: "10px";
+              color: #1a1b1d80;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+      .logout-button {
+        cursor: pointer;
+        width: 100%;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        background-color: white;
+        padding: 16px;
+        transition: all;
+        transition-duration: 300ms;
+        transition-behavior: ease;
+
+        &:hover {
+          background-color: #f4f4f4;
+        }
+      }
+    }
+  }
+}
