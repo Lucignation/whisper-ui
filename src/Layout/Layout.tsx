@@ -3,10 +3,10 @@ import Nav from "../components/Nav/nav";
 
 const Layout = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <Nav />
-      <main className="p-6">
-        <Outlet /> {/* This will render child pages */}
+      <main>
+        <Outlet />
       </main>
     </div>
   );

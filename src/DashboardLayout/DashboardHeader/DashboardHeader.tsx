@@ -11,10 +11,7 @@ import {
 } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useLocation } from "react-router-dom";
-import {
-  DashboardHeaderProps,
-  DashboardNavLinkInformationType,
-} from "../types";
+import { DashboardHeaderProps, DashboardNavLinkInformationType } from "../type";
 
 import "./DashboardHeader.scss";
 
@@ -61,7 +58,7 @@ const DashboardHeader: FC<DashboardHeaderProps> = ({
       permissions: [], // No permissions required
     },
     {
-      key: "/settings",
+      key: "/app/admin/settings",
       icon: <IoSettingsSharp />,
       label: "Settings",
       permissions: [],

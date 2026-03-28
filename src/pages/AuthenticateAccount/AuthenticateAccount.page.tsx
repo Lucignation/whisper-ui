@@ -1,142 +1,179 @@
-import { Button } from "../../components/ui/button";
-import BG from "../../assets/bg1.png";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { IoMdArrowForward } from "react-icons/io";
-import Playstore from "../../assets/googleplay.png";
-import AppStore from "../../assets/appstore.svg";
 import { useState } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Button } from "../../components/ui/button";
+import {
+  IoFlashOutline,
+  IoArrowForward,
+  IoAddCircleOutline,
+  IoPeopleOutline,
+  IoChevronForward,
+} from "react-icons/io5";
+import { cn } from "../../lib/utils";
+
+// ─── Mock existing workspace ───────────────────────────────────────────────────
+
+const mockWorkspace = {
+  name: "Chrevron Devs",
+  members: 7067,
+  logoLetter: "C",
+};
+
+// ─── Page ──────────────────────────────────────────────────────────────────────
 
 const AuthenticateAccount = () => {
   const [searchParams] = useSearchParams();
   const isAuthenticated = searchParams.get("authenticated");
+  const [acceptTerms, setAcceptTerms] = useState(false);
   const navigate = useNavigate();
-  const [acceptTerms, setAcceptTerms] = useState<boolean>(false);
 
   const handleCreateWorkspace = () => {
-    if (!acceptTerms) {
-      return;
-    }
+    if (!acceptTerms) return;
     navigate("/auth/get-started/create-company-name");
   };
+
   return (
-    <div className="flex bg-[#EEEEEE] flex-col items-center min-h-screen justify-center gap-[20px]">
-      <img
-        src="https://www.logologo.com/logos/abstract-isometric-logo-design-free-logo.jpg"
-        alt="Logo"
-        className="w-[100px] h-[100px] rounded-full mt-[50px]"
-      />
-
-      <p className="mb-[30px] bg-[#ffffff50] text-[#00000080] text-[15px] py-[5px] px-[15px] rounded-full">
-        Continue as <span>name@work-email.com</span>{" "}
-        <Link to="/" className="ml-[10px] text-[#508C9B]">
-          Change
-        </Link>
-      </p>
-
-      <div className="flex justify-between items-start w-[70%] mx-auto">
-        <div className="w-[50%] leading-[1.5]">
-          <h2 className="text-[40px] leading-[1] font-bold mb-[20px]">
-            Create a new Whisper workspace
-          </h2>
-          <p className="text-[16px] mb-[20px]">
-            Whisper provides your team with a dedicated space to collaborate,
-            communicate, and work efficiently. Click the button below to create
-            a new workspace.
-          </p>
-          <Button
-            className="bg-[#201E43] text-[#EEEEEE]"
-            onClick={handleCreateWorkspace}
-            disabled={!acceptTerms}
-          >
-            Create a new Workspace
-          </Button>
-
-          <div className="mt-[20px]">
-            <input
-              type="checkbox"
-              className="accent-[#134B70]"
-              id="terms"
-              name="terms"
-              checked={acceptTerms}
-              onChange={(e) => setAcceptTerms(e.target.checked)}
-            />
-            <label htmlFor="terms" className="text-[15px] ml-[10px]">
-              I agree to the{" "}
-              <span className="text-[#134B70] cursor-pointer">
-                Terms of Service
-              </span>{" "}
-              and{" "}
-              <span className="text-[#134B70] cursor-pointer">
-                Privacy Policy
-              </span>
-            </label>
+    <div className="min-h-screen bg-[#0D0E14] flex flex-col">
+      {/* Top bar */}
+      <div className="flex items-center justify-between px-8 py-5 border-b border-white/[0.05]">
+        <Link to="/" className="flex items-center gap-2 text-[#E8E6F2]">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#9333EA] to-[#6D28D9] flex items-center justify-center">
+            <IoFlashOutline size={16} className="text-white" />
           </div>
-        </div>
-        <div className="w-[50%]">
-          <img
-            src={BG}
-            className="w-[500px]"
-            alt="three staffs working remotely"
-          />
+          <span className="font-bold text-[17px] tracking-tight">Whisper</span>
+        </Link>
+
+        {/* Email pill */}
+        <div className="flex items-center gap-2 bg-white/[0.05] border border-white/[0.08] rounded-full px-3 py-1.5 text-[13px] text-[#9B98B0]">
+          name@company.com
+          <Link to="/auth/login" className="text-[#A78BFA] hover:text-[#C084FC] transition-colors font-medium">
+            Change
+          </Link>
         </div>
       </div>
 
-      {isAuthenticated !== "false" && (
-        <div className="w-[70%] relative mx-auto border-t-[1px] border-[#00000020] pt-[20px]">
-          <p className="absolute top-0 bg-[#EEEEEE] mt-[-20px] ml-[50%] p-[10px] rounded-full">
-            OR
-          </p>
-          <h2 className="text-[16px] text-center text-[#134B70] mb-[15px]">
-            Want to continue to existing workspace?
-          </h2>
-          <div>
-            <div className="flex items-center justify-between w-[500px] mx-auto bg-[#ffffff80] p-[20px] rounded-md">
-              <div className="flex items-center gap-[20px]">
-                <img
-                  src="https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg"
-                  alt=""
-                  className="w-[50px] h-[50px] rounded-md"
-                />
-                <div>
-                  <p className="text-[20px] ">Chrevron Devs</p>
-                  <p className="text-[14px]">7067 members</p>
-                </div>
+      {/* Main content */}
+      <div className="flex-1 flex items-center justify-center px-5 py-16">
+        <div className="w-full max-w-2xl">
+          <div className="text-center mb-12">
+            <h1 className="text-[32px] md:text-[40px] font-bold text-[#E8E6F2] tracking-tight mb-3">
+              What would you like to do?
+            </h1>
+            <p className="text-[16px] text-[#9B98B0]">
+              Create a new workspace or join an existing one.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-5">
+            {/* Create new workspace card */}
+            <div className="bg-[#1C1E27] border border-white/[0.07] rounded-2xl p-6 flex flex-col">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#3B1F6B] to-[#2D1F52] border border-[#7C3AED]/20 flex items-center justify-center mb-5">
+                <IoAddCircleOutline size={22} className="text-[#A78BFA]" />
               </div>
-              <p className="flex items-center gap-[10px] bg-[#201E43] text-[#fff] px-[10px] py-[4px] rounded-md">
-                <span>Join</span>
-                <IoMdArrowForward color="white" />
+
+              <h2 className="text-[18px] font-semibold text-[#E8E6F2] mb-2">
+                Create a new workspace
+              </h2>
+              <p className="text-[14px] text-[#635E7A] leading-relaxed flex-1 mb-6">
+                Start fresh with a dedicated space for your team to collaborate,
+                communicate, and work efficiently.
               </p>
+
+              {/* Terms checkbox */}
+              <label className="flex items-start gap-3 cursor-pointer mb-5">
+                <div
+                  className={cn(
+                    "w-4 h-4 rounded border flex-shrink-0 mt-0.5 flex items-center justify-center transition-all duration-150",
+                    acceptTerms
+                      ? "bg-[#7C3AED] border-[#7C3AED]"
+                      : "border-white/20 bg-white/[0.04]"
+                  )}
+                  onClick={() => setAcceptTerms((v) => !v)}
+                >
+                  {acceptTerms && (
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                      <path
+                        d="M1 4L3.5 6.5L9 1"
+                        stroke="white"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
+                </div>
+                <span className="text-[13px] text-[#9B98B0] leading-relaxed">
+                  I agree to Whisper's{" "}
+                  <a href="#" className="text-[#A78BFA] hover:text-[#C084FC] transition-colors">
+                    Terms of Service
+                  </a>{" "}
+                  and{" "}
+                  <a href="#" className="text-[#A78BFA] hover:text-[#C084FC] transition-colors">
+                    Privacy Policy
+                  </a>
+                </span>
+              </label>
+
+              <Button
+                onClick={handleCreateWorkspace}
+                disabled={!acceptTerms}
+                className="w-full h-11 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-xl text-[14px] transition-all duration-200 shadow-lg shadow-purple-900/30 disabled:opacity-30"
+              >
+                Create workspace <IoArrowForward size={15} className="ml-1" />
+              </Button>
             </div>
+
+            {/* Join existing workspace card */}
+            {isAuthenticated !== "false" && (
+              <div className="bg-[#1C1E27] border border-white/[0.07] rounded-2xl p-6 flex flex-col">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1A2E1A] to-[#0D2010] border border-green-900/30 flex items-center justify-center mb-5">
+                  <IoPeopleOutline size={22} className="text-[#4ADE80]" />
+                </div>
+
+                <h2 className="text-[18px] font-semibold text-[#E8E6F2] mb-2">
+                  Join an existing workspace
+                </h2>
+                <p className="text-[14px] text-[#635E7A] leading-relaxed flex-1 mb-6">
+                  Your email is associated with the workspace below. Join it
+                  instantly.
+                </p>
+
+                {/* Workspace list item */}
+                <button className="w-full flex items-center gap-4 p-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.07] hover:border-white/[0.12] transition-all duration-150 mb-5">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-sm">
+                      {mockWorkspace.logoLetter}
+                    </span>
+                  </div>
+                  <div className="flex-1 text-left min-w-0">
+                    <p className="text-[14px] font-semibold text-[#E8E6F2] truncate">
+                      {mockWorkspace.name}
+                    </p>
+                    <p className="text-[12px] text-[#635E7A]">
+                      {mockWorkspace.members.toLocaleString()} members
+                    </p>
+                  </div>
+                  <IoChevronForward size={16} className="text-[#635E7A] flex-shrink-0" />
+                </button>
+
+                <Button
+                  variant="outline"
+                  className="w-full h-11 border-[#4ADE80]/30 text-[#4ADE80] hover:bg-[#4ADE80]/10 font-semibold rounded-xl text-[14px] transition-all duration-200"
+                  onClick={() => navigate("/app/personal_chat")}
+                >
+                  Join workspace
+                </Button>
+              </div>
+            )}
           </div>
         </div>
-      )}
+      </div>
 
-      <div className="w-full   flex mt-[60px] flex-col items-center gap-[20px] p-[20px] bg-[#F9F9F9]">
-        <p className="text-[14px]">Download and sign-up from your phone</p>
-        <div className="flex items-center gap-[12px]">
-          <Link to="/">
-            <img
-              src={Playstore}
-              alt="Playstore"
-              style={{ width: "150px", height: "45px" }}
-            />
-          </Link>
-          <Link to="/">
-            <img
-              src={AppStore}
-              alt="App store"
-              style={{ width: "150px", height: "45px" }}
-            />
-          </Link>
-        </div>
-
-        <div className="flex items-center gap-[10px] text-[14px]">
-          <Link to="/" className="text-[#201E43]">
-            Privacy & Terms
-          </Link>
-          <Link to="/" className="text-[#201E43]">
-            Contact Us
-          </Link>
+      {/* Bottom footer */}
+      <div className="px-8 py-5 border-t border-white/[0.05] flex items-center justify-between text-[12px] text-[#635E7A]">
+        <span>© 2025 Whisper Technologies</span>
+        <div className="flex gap-4">
+          <Link to="#" className="hover:text-[#9B98B0] transition-colors">Privacy</Link>
+          <Link to="#" className="hover:text-[#9B98B0] transition-colors">Terms</Link>
         </div>
       </div>
     </div>
