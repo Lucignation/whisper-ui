@@ -221,7 +221,7 @@ const Dashboard = () => {
                   </Link>
                 </div>
                 <div className="divide-y divide-white/[0.04]">
-                  {pinnedChannels.map(({ name, members, unread, lastMsg }) => (
+                  {pinnedChannels.map(({ name, unread, lastMsg }) => (
                     <Link to="/app/personal_chat" key={name} className="flex items-center gap-3 px-5 py-3.5 hover:bg-white/[0.03] transition-colors">
                       <div className="w-9 h-9 rounded-xl bg-[#2D2157] flex items-center justify-center flex-shrink-0">
                         <span className="text-[#C084FC] font-bold text-sm">#</span>

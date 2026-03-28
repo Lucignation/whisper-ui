@@ -22,7 +22,6 @@ import { PremiumFeatures } from "../../data/PremiumFeatures";
 import OnboardingLayout from "../../Layout/OnboadingLayout";
 import {
   IoArrowForward,
-  IoLinkOutline,
   IoCopyOutline,
   IoRocketOutline,
   IoFlashOutline,
@@ -78,7 +77,6 @@ const Field = ({
 const CreateCompanyName = () => {
   const {
     register,
-    setValue,
     watch,
   } = useForm({
     defaultValues: { name: "", username: "", invitees: "" },
@@ -96,7 +94,6 @@ const CreateCompanyName = () => {
 
   const name = watch("name");
   const username = watch("username");
-  const invitees = watch("invitees");
 
   useEffect(() => {
     dispatch(setCompanyName(name));
@@ -299,7 +296,7 @@ const CreateCompanyName = () => {
                   50% off for 3 months
                 </h3>
                 <p className="text-[13px] text-[#9B98B0] mb-4">
-                  $4.38 USD per person / month · Billed annually
+                  ₦5,800 per person / month · Billed annually
                 </p>
                 <Button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-xl text-[14px] shadow-lg shadow-purple-900/30 h-11 px-6">
                   <IoFlashOutline size={15} className="mr-1.5" />

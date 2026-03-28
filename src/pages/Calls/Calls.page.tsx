@@ -207,7 +207,7 @@ const Calls = () => {
   const [filter, setFilter] = useState<Filter>("All");
   const [newCallOpen, setNewCallOpen] = useState(false);
   const [meetingOpen, setMeetingOpen] = useState(false);
-  const [callbackVideo, setCallbackVideo] = useState(false);
+  const [, setCallbackVideo] = useState(false);
 
   const dateGroups = [...new Set(callData.map((c) => c.date))];
 

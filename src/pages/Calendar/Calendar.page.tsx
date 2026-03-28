@@ -11,7 +11,6 @@ import {
   IoChevronBackOutline,
   IoChevronForwardOutline,
   IoLinkOutline,
-  IoCloseOutline,
   IoCopyOutline,
 } from "react-icons/io5";
 

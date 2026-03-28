@@ -3,11 +3,8 @@ import React from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { toast } from "sonner";
 import { Upload } from "antd";
-import { useMutation } from "@tanstack/react-query";
-
 const Uploader = () => {
-  const [uploading, setUploading] = React.useState(false);
-  const [fileInfo, setFileInfo] = React.useState(null);
+  const [fileInfo] = React.useState(null);
 
   // const handleServiceCall = () => {};
 
@@ -33,7 +30,7 @@ const Uploader = () => {
   //   },
   // });
 
-  const customRequest = async ({ file, onSuccess, onError }: any) => {
+  const customRequest = async ({ file }: any) => {
     console.log({ file });
     toast.success(
       <div className="leading-[.5]">

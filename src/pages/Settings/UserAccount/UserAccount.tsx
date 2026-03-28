@@ -38,7 +38,7 @@ const UserAccount = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isDirty },
+    formState: { errors },
   } = useForm({
     defaultValues: { firstName: "James", lastName: "Henry", phone: "(030) 459-50300" as any },
     resolver: yupResolver(userAccountSchema),

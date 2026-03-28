@@ -7,10 +7,8 @@ import {
   IoPeopleOutline,
   IoRocketOutline,
   IoGlobeOutline,
-  IoHeadsetOutline,
   IoAnalyticsOutline,
 } from "react-icons/io5";
-import { HiOutlineLightningBolt } from "react-icons/hi";
 import { BsChatSquareTextFill } from "react-icons/bs";
 
 // ─── Data ──────────────────────────────────────────────────────────────────────
@@ -57,7 +55,7 @@ const features = [
 const pricingPlans = [
   {
     name: "Free",
-    price: "$0",
+    price: "₦0",
     period: "forever",
     desc: "Perfect for small teams getting started.",
     features: [
@@ -72,7 +70,7 @@ const pricingPlans = [
   },
   {
     name: "Pro",
-    price: "$7.25",
+    price: "₦11,600",
     period: "per person / month",
     desc: "For growing teams that need more power.",
     features: [

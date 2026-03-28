@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { IoFlashOutline } from "react-icons/io5";
-import { cn } from "../../lib/utils";
 
 const navLinks = [
   { label: "Features", to: "#features" },

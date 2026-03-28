@@ -285,7 +285,7 @@ const Groups = () => {
   const [openMenuId, setOpenMenuId] = useState<number | null>(null);
   const [createOpen, setCreateOpen] = useState(false);
 
-  const handleGroupClick = (g: Group) => {
+  const handleGroupClick = (_g: Group) => {
     navigate("/app/personal_chat");
   };
 

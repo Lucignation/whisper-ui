@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "../pages/Home/Home.page";
+import Home from "../pages/Home/home.page";
 import NotFound from "../pages/NotFound/NotFound.page";
 import Layout from "../Layout/Layout";
-import Signup from "../pages/Signup/Signup.page";
+import Signup from "../pages/Signup/signup.page";
 import Signin from "../pages/Signin/signin.page";
 import VerifyAccount from "../pages/VerifyAccount/VerifyAccount.page";
 import AuthenticateAccount from "../pages/AuthenticateAccount/AuthenticateAccount.page";

@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, useState, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../store/store";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
 import { selectCompanyValue } from "../../../features/companySelectors";
 import { Textarea } from "../../../components/ui/textarea";
 import { IoMdSend } from "react-icons/io";
@@ -30,7 +30,6 @@ const MessagesPanel: FC<MessagesPanelProps> = ({
   const [groupedMessages, setGroupedMessages] = useState<any>(null);
   const [value, setValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [showEmojiHint, setShowEmojiHint] = useState(false);
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const simulatedTypingRef = useRef<NodeJS.Timeout | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -199,7 +198,6 @@ const MessagesPanel: FC<MessagesPanelProps> = ({
               {/* Action buttons (right-side) */}
               <div className="absolute bottom-2 right-2 flex items-center gap-1">
                 <button
-                  onClick={() => setShowEmojiHint((v) => !v)}
                   aria-label="Emoji"
                   className="w-8 h-8 flex items-center justify-center rounded-lg text-[#635E7A] hover:text-[#9B98B0] hover:bg-white/5 transition-all duration-150"
                 >
