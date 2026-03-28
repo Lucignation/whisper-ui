@@ -1,55 +1,50 @@
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
 # whisper-ui
+
+Whisper UI is a React + TypeScript + Vite frontend.
+
+## Local setup
+
+1. Install dependencies with `npm install`.
+2. Copy `.env.example` to `.env.local`.
+3. Fill in the Firebase web app values.
+4. Start the app with `npm run dev`.
+
+## Public env vars
+
+This project uses `VITE_*` variables for Firebase web app config. Those values are sent to the browser by Vite, so they must be safe to expose publicly.
+
+Recommended variable names:
+
+```bash
+VITE_FB_WEB_KEY=
+VITE_FB_APP_DOMAIN=
+VITE_FB_PROJECT_ID=
+VITE_FB_STORAGE_BUCKET=
+VITE_FB_SENDER_ID=
+VITE_FB_APP_ID=
+VITE_FB_MEASUREMENT_ID=
+```
+
+These are public client config values, not server secrets. Firebase protects access through Authentication, Security Rules, IAM, and App Check.
+
+## Secret env vars
+
+Do not place secrets in any variable prefixed with `VITE_`.
+
+Examples of server-only secrets:
+
+```bash
+FIREBASE_ADMIN_PRIVATE_KEY=
+JWT_SECRET=
+STRIPE_SECRET_KEY=
+```
+
+Secrets like these should live in a backend service, serverless function, or other server-only environment.
+
+## Backward compatibility
+
+The app still supports the older `VITE_PUBLIC_FIREBASE_*` names for now, but new setup should use the `VITE_FB_*` names instead.
+
+## Vercel
+
+When deploying on Vercel, add the same public Firebase values from `.env.example` in Project Settings > Environment Variables.
